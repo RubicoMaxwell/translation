@@ -1,5 +1,5 @@
 {
-    "name": "abhishekallen2/translation",
+    "name": "abhishekallen/translation",
     "description": "A Translation package for Laravel 8 with database and cache support",
     "version": "2.5.0",
     "keywords": [
@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "laravel/framework": "~6.0|~7.0|~8.0",
+        "laravel/framework": "~6.0|~7.0",
         "doctrine/dbal": "^2.5"
     },
     "require-dev": {
