@@ -1,6 +1,6 @@
 {
     "name": "abhishekallen/translation",
-    "description": "A Translation package for Laravel 5 with database and cache support",
+    "description": "A Translation package for Laravel 8 with database and cache support",
     "keywords": [
         "waavi",
         "laravel-translator",
