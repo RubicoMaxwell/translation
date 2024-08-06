@@ -1,5 +1,5 @@
 {
-    "name": "abhishekallen/translation",
+    "name": "authenticbussiness/translation",
     "description": "A Translation package for Laravel 8 with database and cache support",
     "version": "2.5.0",
     "keywords": [
