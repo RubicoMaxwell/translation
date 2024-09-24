@@ -38,7 +38,12 @@
         }
     },
     "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.5-dev"
+        }
+    },
     "scripts": {
         "test": "vendor/bin/phpunit"
-    }
+    }    
 }
