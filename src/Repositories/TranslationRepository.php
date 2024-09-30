@@ -114,7 +114,7 @@ class TranslationRepository extends Repository
     public function updateDefaultByCode($code, $text)
     {
         // Apply the condition to prevent default entries for defaultLocale==en 
-        if(in_array($this->defaultLocale ,explode(',',$request->preferred_languages))) {
+        if(in_array($this->defaultLocale ,request()->preferred_languages)) {
             list($namespace, $group, $item) = $this->parseCode($code);
             $locale                         = $this->defaultLocale;
             $translation                    = $this->model->whereLocale($locale)->whereNamespace($namespace)->whereGroup($group)->whereItem($item)->first();
