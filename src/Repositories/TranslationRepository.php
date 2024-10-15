@@ -114,14 +114,24 @@ class TranslationRepository extends Repository
     public function updateDefaultByCode($code, $text)
     {
         // Apply the condition to prevent default entries for defaultLocale==en 
-        if(in_array($this->defaultLocale ,request()->preferred_languages)) {
-            list($namespace, $group, $item) = $this->parseCode($code);
-            $locale                         = $this->defaultLocale;
-            $translation                    = $this->model->whereLocale($locale)->whereNamespace($namespace)->whereGroup($group)->whereItem($item)->first();
-            if (!$translation) {
-                return $this->create(compact('locale', 'namespace', 'group', 'item', 'text'));
+        if(request()->preferred_languages) {
+            if(in_array($this->defaultLocale ,request()->preferred_languages)) {
+                list($namespace, $group, $item) = $this->parseCode($code);
+                $locale                         = $this->defaultLocale;
+                $translation                    = $this->model->whereLocale($locale)->whereNamespace($namespace)->whereGroup($group)->whereItem($item)->first();
+                if (!$translation) {
+                    return $this->create(compact('locale', 'namespace', 'group', 'item', 'text'));
+                }
+                return $this->update($translation->id, $text);
             }
-            return $this->update($translation->id, $text);
+        } else {
+            list($namespace, $group, $item) = $this->parseCode($code);
+                $locale                         = $this->defaultLocale;
+                $translation                    = $this->model->whereLocale($locale)->whereNamespace($namespace)->whereGroup($group)->whereItem($item)->first();
+                if (!$translation) {
+                    return $this->create(compact('locale', 'namespace', 'group', 'item', 'text'));
+                }
+                return $this->update($translation->id, $text);
         }
     }
 
